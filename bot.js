@@ -34,7 +34,7 @@ bot.onText(/\/show level/, async (msg) => {
   try {
     const data = await fetchData();
     const levels = Object.keys(data);
-    const reply = levels.map((level) => `/${level}`).join('\n');
+    const reply = levels.map((level) => `/select ${level}`).join('\n');
     bot.sendMessage(msg.chat.id, `Available levels:\n${reply}`);
   } catch (err) {
     console.error(err);
@@ -53,7 +53,7 @@ bot.onText(/\/select (\w+)/, async (msg, match) => {
       return;
     }
     selectedLevel = level;
-    const reply = Object.keys(subjects).map((subject) => `/${level}-${subject}`).join('\n');
+    const reply = Object.keys(subjects).map((subject) => `/iselect ${level}-${subject}`).join('\n');
     bot.sendMessage(msg.chat.id, `Subjects under ${level}:\n${reply}`);
   } catch (err) {
     console.error(err);
