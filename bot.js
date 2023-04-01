@@ -23,6 +23,12 @@ function fetchData() {
   });
 }
 
+// Handle the '/start' command to display the documentation
+bot.onText(/\/start/, async (msg) => {
+    const reply = `Welcome to my Telegram bot!\n\nHere's how to use this bot:\n\n1. Type /show level to view all available levels.\n\n2. Select a level by typing /select levelX, where X is the level number.\n\n3. Select a subject by typing /iselect levelX subjectY, where X is the level number and Y is the subject name.\n\n4. View all books under the selected subject.\n\nEnjoy!`;
+    bot.sendMessage(msg.chat.id, reply);
+  });
+  
 // Handle the '/show level' command to display all available levels
 bot.onText(/\/show level/, async (msg) => {
   try {
