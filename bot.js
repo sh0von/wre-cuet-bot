@@ -34,7 +34,7 @@ bot.onText(/\/show level/, async (msg) => {
   try {
     const data = await fetchData();
     const levels = Object.keys(data);
-    const reply = levels.map((level) => `/select ${level}`).join('\n');
+    const reply = levels.map((level) => `/${level}`).join('\n');
     bot.sendMessage(msg.chat.id, `Available levels:\n${reply}`);
   } catch (err) {
     console.error(err);
